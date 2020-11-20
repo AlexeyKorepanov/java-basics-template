@@ -34,7 +34,10 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int maxFrom(int[] values) {
-        return -1;
+        int max = 0;   //Integer.MIN_VALUE
+        for (int a : values)
+            max = Math.max(max, a);
+        return max ;
     }
 
     /**
@@ -43,7 +46,10 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int sum(int[] values) {
-        return -1;
+        int sum = 0;   
+        for (int a : values)
+            sum +=  a;
+        return sum ;
     }
 
     /**
