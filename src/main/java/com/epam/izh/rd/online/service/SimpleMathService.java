@@ -39,14 +39,14 @@ public class SimpleMathService implements MathService {
             max = Math.max(max, a);
         return max ;
     }
-
+// а можно так : if (a.length >0){ return (Arrays.stream(a).max().getAsInt()) ; }return 0 ; +import java.util.Arrays;?
     /**
      * Метод возвращает сумму чисел массива.
      * Например для списка {-1, -3, 4, 8, 5, 22, -5} метод должен вернуть 30
      */
     @Override
     public int sum(int[] values) {
-        int sum = 0;   
+        int sum = 0;
         for (int a : values)
             sum +=  a;
         return sum ;
