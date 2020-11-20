@@ -13,9 +13,9 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int compare(int value1, int value2) {
-    if(value1!=value2){
-        return (value1<value2? -1 : 1);
-    } else  return 0;
+    if(value1!=value2) {
+        return (value1 < value2 ? -1 : 1);
+    }return 0;
     }
 
     /**
@@ -24,7 +24,7 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int maxFrom(int value1, int value2) {
-        return -1;
+        return (value1 < value2 ? value2 : value1);
     }
 
     /**
