@@ -1,7 +1,7 @@
 package com.epam.izh.rd.online.service;
 
 import java.util.Arrays;
-import java.util.Collections;
+
 
 public class SimpleMathService implements MathService {
 
@@ -16,9 +16,7 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int compare(int value1, int value2) {
-    if(value1!=value2) 
-        return (value1 < value2 ? -1 : 1);
-    return 0;
+        return Integer.compare(value1, value2);
     }
 
     /**
@@ -27,7 +25,7 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public int maxFrom(int value1, int value2) {
-        return (Math.max(value1, value2));
+        return Math.max(value1, value2);
     }
 
     /**
@@ -37,7 +35,7 @@ public class SimpleMathService implements MathService {
     @Override
     public int maxFrom(int[] values) {
 
-        return (Arrays.stream(values).max().getAsInt()); // разве не должна выходить ошибка на нулевом массиве?
+        return Arrays.stream(values).max().getAsInt(); // разве не должна выходить ошибка на нулевом массиве?
     }
     /**
      * Метод возвращает сумму чисел массива.
@@ -66,7 +64,6 @@ public class SimpleMathService implements MathService {
             }
         int[] newArr = new int[num];
           System.arraycopy(arr, 0, newArr, 0, num);
-
         return newArr ;
     }
 
@@ -98,10 +95,13 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public long calcFibonacci(int number) {
-        long fibonacci = 0 ;
-
-
-        return fibonacci;
+        long [] arr = new long[number + 2] ;
+        arr[0] = 0 ;
+        arr[1] = 1 ;
+        for (int i = 2; i <= number ; i++) {
+            arr[i] = arr[i-2] + arr[i-1] ;
+        }
+        return arr[number] ;
     }
 
     /**
@@ -123,7 +123,10 @@ public class SimpleMathService implements MathService {
      */
     @Override
     public boolean isPrimary(int number) {
-        return false;
+        for (int i = 2; i < number ; i++) {
+            if (number%i == 0) return false ;
+        }
+        return true;
     }
 
     /**
